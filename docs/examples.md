@@ -41,7 +41,8 @@ To track history: across comparisons add the flag " --track " to the end of any 
   <img width="870" height="258" alt="image" src="https://github.com/user-attachments/assets/732df924-f756-491b-a194-24afa2e69f0e" />
 
 7. CI Mode: python builddiff_advanced.py baseline_log.txt candidate_log.txt --ci
-  You can also customize threhold numbers, python builddiff_advanced.py baseline_log.txt candidate_log.txt --ci --fail-percent 40 --fail-seconds 30
+(You can also customize threhold numbers)
+ python builddiff_advanced.py baseline_log.txt candidate_log.txt --ci --fail-percent 40 --fail-seconds 30
   
 <img width="1328" height="1400" alt="image" src="https://github.com/user-attachments/assets/cc9a65ed-6853-47fd-82e8-c1277cf9f4be" />
 
