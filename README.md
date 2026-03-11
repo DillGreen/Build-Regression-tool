@@ -18,6 +18,12 @@ The tool can generate clear text, JSON, Markdown, and HTML reports for local deb
 - Work in local workflows or CI pipelines
 - Support synthetic test mode for validation
 
+## Project Structure
+
+- `builddiff_advanced.py` — main CLI tool
+- `docs/` — usage, examples, and CI integration notes
+- `tests/` — parser, analysis, and synthetic tests
+- `tests/sample_logs/` — sample Unity build logs used for testing
 
 ## Installation
 pip install -r requirements.txt
