@@ -1,5 +1,4 @@
 # Build-Regression-tool
-# Build Regression Tool
 
 Build Regression Tool is a lightweight Python CLI that helps explain why a Unity build became slower.
 
