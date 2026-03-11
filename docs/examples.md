@@ -4,21 +4,28 @@ This page shows common ways to run Build Regression Tool.
 
 ## Compare Two Build Logs
 
-python builddiff_advanced.py baseline_log.txt candidate_log.txt
+1. python builddiff_advanced.py baseline_log.txt candidate_log.txt
 
 <img width="1307" height="1349" alt="image" src="https://github.com/user-attachments/assets/95e5f877-9a0e-4409-acef-fa4122a990c6" />
 
-JSON: python builddiff_advanced.py baseline_log.txt candidate_log.txt --json
+2. JSON: python builddiff_advanced.py baseline_log.txt candidate_log.txt --json
+(Nomral payload) 
 
-Markdown: python builddiff_advanced.py baseline_log.txt candidate_log.txt --markdown
+3. Markdown: python builddiff_advanced.py baseline_log.txt candidate_log.txt --markdown
 
-  <img width="990" height="422" alt="image" src="https://github.com/user-attachments/assets/fa3538a5-a4ac-40ef-b5bb-2c161cd0632d" />
+Markdown EX:
+<img width="990" height="422" alt="image" src="https://github.com/user-attachments/assets/fa3538a5-a4ac-40ef-b5bb-2c161cd0632d" />
 
-HTML: python builddiff_advanced.py baseline_log.txt candidate_log.txt --html --html-out report.html
+
+4. HTML: python builddiff_advanced.py baseline_log.txt candidate_log.txt --html --html-out report.html
 (Ignore Debugg logs, check file location of the code and those 2 files and you should see a new HTML file to open)
+
+Terminal ouput
 <img width="898" height="197" alt="image" src="https://github.com/user-attachments/assets/349077f0-0fdd-4f55-9de3-f88d49484d29" />
 
+HTML output:
 <img width="1947" height="1907" alt="image" src="https://github.com/user-attachments/assets/0361a7c4-2815-42d2-bf1a-b32ffd97ef08" />
+
 
 Synthetic Test Mode: python builddiff_advanced.py --synthetic     (The numbers are hard coded and the results of the report will automatically append to history
 
