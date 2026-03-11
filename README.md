@@ -33,7 +33,7 @@ The tool can generate clear text, JSON, Markdown, and HTML reports for local deb
 pip install -r requirements.txt
 
 
-## Basic Usage
+## Quick Start 
   Compare two logs:
   python builddiff_advanced.py baseline_log.txt candidate_log.txt  (These are example names for logs)
 
@@ -52,9 +52,8 @@ Run synthetic validation:
 Analyze history: 
   python builddiff_advanced.py --history
 
-
-
-
+# Use in CI (returns exit code 1 if major regression detected)
+python builddiff_advanced.py baseline_log.txt candidate_log.txt --ci
 
 ## CI Usage
 
