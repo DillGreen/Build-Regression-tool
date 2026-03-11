@@ -26,7 +26,7 @@ The tool can generate clear text, JSON, Markdown, and HTML reports for local deb
 
 ## Installation
 pip install -r requirements.txt
-### Basic usage
+
 
 ## Basic Usage
   Compare two logs:
@@ -48,7 +48,7 @@ Analyze history:
   python builddiff_advanced.py --history
 
 
-### CI usage
+
 
 
 ## CI Usage
