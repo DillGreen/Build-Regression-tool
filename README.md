@@ -6,6 +6,11 @@ It compares two Unity build logs, measures the total build change, finds the pip
 
 The tool can generate clear text, JSON, Markdown, and HTML reports for local debugging or CI pipelines. It also includes noise control to reduce false positives from normal build variation, plus history-aware checks to better detect real regressions over time.
 
+
+<img width="2249" height="1936" alt="image" src="https://github.com/user-attachments/assets/52f35b49-6f30-4d0a-ad8a-a68385874ad6" />
+
+
+
 ## Features
 
 - Compare two Unity build logs
