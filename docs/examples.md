@@ -20,32 +20,32 @@ Markdown EX:
 4. HTML: python builddiff_advanced.py baseline_log.txt candidate_log.txt --html --html-out report.html
 (Ignore Debugg logs, check file location of the code and those 2 files and you should see a new HTML file to open)
 
-Terminal ouput
+Terminal ouput:
 <img width="898" height="197" alt="image" src="https://github.com/user-attachments/assets/349077f0-0fdd-4f55-9de3-f88d49484d29" />
 
 HTML output:
 <img width="1947" height="1907" alt="image" src="https://github.com/user-attachments/assets/0361a7c4-2815-42d2-bf1a-b32ffd97ef08" />
 
 
-Synthetic Test Mode: python builddiff_advanced.py --synthetic     (The numbers are hard coded and the results of the report will automatically append to history
+5. Synthetic Test Mode: python builddiff_advanced.py --synthetic     (The numbers are hard coded and the results of the report will automatically append to history
 
 These are other flags that can be used 
-  python builddiff_advanced.py --synthetic --json
-  python builddiff_advanced.py --synthetic --markdown
-  python builddiff_advanced.py --synthetic --html --html-out synthetic_report.html
+  - python builddiff_advanced.py --synthetic --json
+  - python builddiff_advanced.py --synthetic --markdown
+  - python builddiff_advanced.py --synthetic --html --html-out synthetic_report.html
 
 To track history: across comparisons add the flag " --track " to the end of any of the listed flags above and it will track 
 
-History Analysis: python builddiff_advanced.py --history
+6. History Analysis: python builddiff_advanced.py --history
 
   <img width="870" height="258" alt="image" src="https://github.com/user-attachments/assets/732df924-f756-491b-a194-24afa2e69f0e" />
 
-CI Mode: python builddiff_advanced.py baseline_log.txt candidate_log.txt --ci
+7. CI Mode: python builddiff_advanced.py baseline_log.txt candidate_log.txt --ci
   You can also customize threhold numbers, python builddiff_advanced.py baseline_log.txt candidate_log.txt --ci --fail-percent 40 --fail-seconds 30
   
 <img width="1328" height="1400" alt="image" src="https://github.com/user-attachments/assets/cc9a65ed-6853-47fd-82e8-c1277cf9f4be" />
 
-Build Output Size Calculation ( Still in development may not path correctly)
+8. Build Output Size Calculation ( Still in development may not path correctly)
   This tells the tool to calculate candidate build size directly from the output file or folder.
   : python builddiff_advanced.py baseline_log.txt candidate_log.txt --build-output "C:\Path\To\Build"
 
