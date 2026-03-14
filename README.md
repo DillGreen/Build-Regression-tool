@@ -1,4 +1,4 @@
-# Build-Regression-tool
+# Build-Regression-tool  V1.0.0
 
 Build Regression Tool is a lightweight Python CLI that helps explain why a Unity build became slower.
 
@@ -26,11 +26,25 @@ The tool can generate clear text, JSON, Markdown, and HTML reports for local deb
 
 - `builddiff_advanced.py` — main CLI tool
 - `docs/` — usage, examples, and CI integration notes
-- `tests/` — parser, analysis, and synthetic tests
-- `tests/sample_logs/` — sample Unity build logs used for testing
+- `Test/` — parser, analysis, and synthetic tests
+- `Test/sample_logs/` — sample Unity build logs used for testing
 
 ## Installation
-pip install -r requirements.txt
+pip install Requirements.txt
+
+## How It Works
+
+1. Run your Unity build as normal — Unity writes a log file automatically
+2. Save that log as your baseline
+3. Make changes and run another build — save that log as your candidate  
+4. Put both log files in the same folder as builddiff_advanced.py
+5. Run the comparison command and get your report
+
+Unity log location (Windows):
+C:\Users\<username>\AppData\Local\Unity\Editor\Editor.log
+
+Unity log location (Mac):
+~/Library/Logs/Unity/Editor.log
 
 
 ## Quick Start 
@@ -63,6 +77,32 @@ Example:
 
 python builddiff_advanced.py baseline_log.txt candidate_log.txt --ci
 
+## CI Output
+
+When run with --ci, the tool exits with code 1 if a regression 
+exceeds the threshold, and code 0 if the build is clean.
+This allows your CI system to fail the build automatically.
+
+To attach the HTML report as a build artifact, generate it 
+alongside the CI check:
+
+python builddiff_advanced.py baseline.log candidate.log \
+  --ci --html --html-out regression_report.html
+
+Then attach regression_report.html as a pipeline artifact.
+
+Example for GitHub Actions:
+- name: Run Build Regression Check
+  run: |
+    python builddiff_advanced.py baseline.log candidate.log \
+      --ci --html --html-out regression_report.html
+
+- name: Upload Regression Report
+  uses: actions/upload-artifact@v3
+  if: always()
+  with:
+    name: build-regression-report
+    path: regression_report.html
 
 ### Limitations
 
