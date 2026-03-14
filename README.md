@@ -107,7 +107,7 @@ python builddiff_advanced.py baseline.log candidate.log \
 Then attach regression_report.html as a pipeline artifact.
 
 Example for GitHub Actions:
-'''yaml 
+```yaml
 - name: Run Build Regression Check
   run: |
     python builddiff_advanced.py baseline.log candidate.log \
@@ -119,7 +119,7 @@ Example for GitHub Actions:
   with:
     name: build-regression-report
     path: regression_report.html
-'''
+```
 
 ## Limitations
 
