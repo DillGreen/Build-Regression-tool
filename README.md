@@ -22,6 +22,21 @@ The tool can generate clear text, JSON, Markdown, and HTML reports for local deb
 - Work in local workflows or CI pipelines
 - Support synthetic test mode for validation
 
+## Regression Types Detected
+
+| Regression Type | Description |
+|---|---|
+| Asset Serialization Overhead | Asset reimport or cache invalidation triggered a rebuild of asset data |
+| Asset Content Expansion | Large increase in build content — new textures, models, or audio added |
+| Script Recompilation Spike | C# compile time increased — likely from code refactor or asmdef change |
+| Post-Processing Pipeline Expansion | Post-build pipeline slowed from new build hooks or IL2CPP changes |
+| Asset Database Rebuild | Unity rebuilt the entire Library/ folder from scratch |
+| Cache Invalidation | Incremental build cache cleared or assembly hash changed |
+| Scripting Backend Switch | Mono vs IL2CPP backend changed between builds |
+| Platform Switch | Build target platform changed between builds |
+| History Z-Score Anomaly | Current build is statistically abnormal compared to recent build history |
+| Distributed Multi-Factor | Regression spread across multiple steps with no single dominant cause |
+
 ## Project Structure
 
 - `builddiff_advanced.py` — main CLI tool
@@ -30,7 +45,7 @@ The tool can generate clear text, JSON, Markdown, and HTML reports for local deb
 - `Test/sample_logs/` — sample Unity build logs used for testing
 
 ## Installation
-pip install Requirements.txt
+pip install -r Requirements.txt
 
 ## How It Works
 
@@ -92,6 +107,7 @@ python builddiff_advanced.py baseline.log candidate.log \
 Then attach regression_report.html as a pipeline artifact.
 
 Example for GitHub Actions:
+'''yaml 
 - name: Run Build Regression Check
   run: |
     python builddiff_advanced.py baseline.log candidate.log \
@@ -103,10 +119,8 @@ Example for GitHub Actions:
   with:
     name: build-regression-report
     path: regression_report.html
+'''
 
-### Limitations
-
-```md
 ## Limitations
 
 - Platform detection depends on log contents unless passed through CLI
