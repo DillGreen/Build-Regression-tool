@@ -1,0 +1,69 @@
+name: Unity Build Regression Checker
+description: Detect, diagnose, and report Unity build time regressions in CI — identifies root causes and who to notify.
+author: DillGreen
+
+branding:
+  icon: activity
+  color: blue
+
+inputs:
+  baseline_log:
+    description: Path to the baseline Unity build log file
+    required: true
+  candidate_log:
+    description: Path to the candidate (new) Unity build log file
+    required: true
+  fail_percent:
+    description: Regression percentage threshold that fails the build (default 40)
+    required: false
+    default: '40'
+  fail_seconds:
+    description: Regression absolute time threshold in seconds that fails the build (default 30)
+    required: false
+    default: '30'
+  output_format:
+    description: Output format — text, json, markdown, or html (default markdown)
+    required: false
+    default: markdown
+  html_report_path:
+    description: Path to save the HTML report (only used when output_format is html)
+    required: false
+    default: build_regression_report.html
+  track_history:
+    description: Append result to build_history.json for trend tracking (true/false)
+    required: false
+    default: 'false'
+  platform:
+    description: Override platform detection (e.g. StandaloneWindows64, Android, iOS)
+    required: false
+    default: ''
+  build_output_path:
+    description: Path to build output folder for size calculation
+    required: false
+    default: ''
+
+outputs:
+  regression_detected:
+    description: 'true if a regression was detected, false otherwise'
+  severity:
+    description: Severity level — Minor, Moderate, Major, or None
+  reason_code:
+    description: Root cause classification code
+  percent_change:
+    description: Percentage change in total build time
+  summary:
+    description: One-line summary of the regression analysis
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.baseline_log }}
+    - ${{ inputs.candidate_log }}
+    - ${{ inputs.fail_percent }}
+    - ${{ inputs.fail_seconds }}
+    - ${{ inputs.output_format }}
+    - ${{ inputs.html_report_path }}
+    - ${{ inputs.track_history }}
+    - ${{ inputs.platform }}
+    - ${{ inputs.build_output_path }}

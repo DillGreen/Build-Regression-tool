@@ -121,12 +121,56 @@ Example for GitHub Actions:
     path: regression_report.html
 ```
 
+## GitHub Action (New)
+
+Use this tool directly in your GitHub Actions workflow — no Python setup required.
+
+```yaml
+- name: Unity Build Regression Check
+  uses: DillGreen/Build-Regression-tool@v1
+  with:
+    baseline_log: logs/baseline.log
+    candidate_log: logs/candidate.log
+    fail_percent: '40'
+    output_format: markdown
+```
+
+**Inputs:**
+
+| Input | Required | Default | Description |
+|-------|----------|---------|-------------|
+| `baseline_log` | Yes | — | Path to baseline Unity build log |
+| `candidate_log` | Yes | — | Path to candidate Unity build log |
+| `fail_percent` | No | 40 | % regression threshold to fail build |
+| `fail_seconds` | No | 30 | Absolute time threshold (seconds) |
+| `output_format` | No | markdown | text, json, markdown, or html |
+| `html_report_path` | No | build_regression_report.html | Path for HTML report output |
+| `track_history` | No | false | Append to build_history.json |
+| `platform` | No | — | Override platform detection |
+| `build_output_path` | No | — | Path to build folder for size calc |
+
+**Outputs:** `regression_detected`, `severity`, `reason_code`, `percent_change`, `summary`
+
+See `.github/workflows/example-usage.yml` for a complete workflow example.
+
 ## Limitations
 
 - Platform detection depends on log contents unless passed through CLI
 - Build size detection is most reliable when a build output path is provided
 - History-based checks are more useful after multiple real runs
 - Some Unity log formats may vary between versions
+
+## Roadmap
+
+- [x] CLI tool with text, JSON, Markdown, HTML output
+- [x] History-aware Z-score regression detection
+- [x] GitHub Action (Docker-based, published to Marketplace)
+- [ ] Hosted dashboard — team history, trend charts, build health scores
+- [ ] PR comment bot — automatic regression summaries on every PR
+- [ ] Unreal Engine support
+- [ ] Slack / Teams notification integration
+
+⭐ Star this repo to follow progress and get notified when the dashboard launches.
 
 
 
