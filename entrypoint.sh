@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
+# Change to the GitHub workspace so relative paths resolve correctly.
+# WORKDIR in the Dockerfile is /app; GitHub mounts the runner workspace at
+# /github/workspace and sets GITHUB_WORKSPACE accordingly.
+cd "${GITHUB_WORKSPACE:-/github/workspace}"
+
 BASELINE_LOG="$1"
 CANDIDATE_LOG="$2"
 FAIL_PERCENT="${3:-40}"
