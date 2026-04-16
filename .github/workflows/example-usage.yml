@@ -28,8 +28,8 @@ jobs:
         id: regression
         uses: DillGreen/Build-Regression-tool@v1
         with:
-          baseline_log: logs/baseline.log
-          candidate_log: logs/candidate.log
+          baseline_log: baseline_log.txt
+          candidate_log: BaseLine_Log2.txt
           fail_percent: '40'
           fail_seconds: '30'
           output_format: markdown
