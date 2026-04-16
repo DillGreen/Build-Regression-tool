@@ -21,17 +21,8 @@ jobs:
       - name: Create test log files
         run: |
           mkdir -p logs
-          echo "Build completed in 126.3 seconds
-          Compiling scripts: 45.2s
-          Asset import: 32.1s
-          Shader compilation: 28.7s
-          Asset database refresh: 20.3s" > logs/baseline.log
-
-          echo "Build completed in 287.6 seconds
-          Compiling scripts: 98.4s
-          Asset import: 31.9s
-          Shader compilation: 89.2s
-          Asset database refresh: 68.1s" > logs/candidate.log
+          printf "Build completed in 126.3 seconds\nCompiling scripts: 45.2s\nAsset import: 32.1s\nShader compilation: 28.7s\nAsset database refresh: 20.3s\n" > logs/baseline.log
+          printf "Build completed in 287.6 seconds\nCompiling scripts: 98.4s\nAsset import: 31.9s\nShader compilation: 89.2s\nAsset database refresh: 68.1s\n" > logs/candidate.log
 
       - name: Run Build Regression Check
         id: regression
