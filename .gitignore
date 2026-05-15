@@ -205,3 +205,23 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+# Credential stores (local, never commit)
+.credentials/
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+*.pfx
+*.p12
+
+# Vercel
+.vercel/
+
+
+# Env files (extra patterns)
+.env.local
+.env.*.local
+*.env
+!.env.example
