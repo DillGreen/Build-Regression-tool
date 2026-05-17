@@ -967,7 +967,7 @@ def run_synthetic_test():
 
     append_to_history(result)
     print("Synthetic result appended to history.")
-
+    return result
 
 
 def generate_markdown_report(result):
