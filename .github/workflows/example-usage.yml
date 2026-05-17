@@ -63,7 +63,7 @@ jobs:
 
       - name: Post regression summary to PR
         if: github.event_name == 'pull_request' && steps.regression.outputs.regression_detected == 'true'
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             github.rest.issues.createComment({

@@ -1,0 +1,6 @@
+Built from '6000.3/staging' branch; Version is '6000.3.8f1 (1c7db571dde0)'
+Active build target changed to StandaloneWindows64
+Mono scripting backend selected
+##utp:{"type":"ProjectInfo","version":2,"phase":"Immediate","projectLoad":150.2,"assembliesLoad":1.5,"assetDatabaseRefresh":128.0}
+##utp:{"type":"PlayerBuildInfo","version":2,"phase":"Immediate","duration":287600,"steps":[{"description":"Compiling scripts","duration":98400},{"description":"Asset import","duration":31900},{"description":"Shader compilation","duration":89200},{"description":"Asset database refresh","duration":68100}]}
+Build completed with a result of 'Succeeded' in 287 seconds
