@@ -9,7 +9,9 @@ import argparse
 from collections import defaultdict
 from unittest import result
 import os
-from datetime import datetime, UTC
+from datetime import datetime, timezone
+
+UTC = timezone.utc
 from colorama import init
 init()
 
